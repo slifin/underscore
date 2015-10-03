@@ -22,14 +22,17 @@ class _{
 		return $prev;
 	}
 	function filter($fn,$data){
-		return array_flip(array_filter(array_flip($data),function($key) use($fn,$data){
-			return $fn($data[$key],$key,$data);
-		}));
+		foreach($data as $k=>$v){
+			if (!$fn($v,$k,$data))
+				unset($data[$k]);
+		}
+		return $data;
 	}
-	function map($fn,$data){
-		return array_map(function($val,$key) use($fn,$data){
-			return $fn($val,$key,$data);
-		},$data,array_keys($data));
+	function map($fn,...$data){
+		$first = array_shift($data);
+		return array_map(function($val,$key,...$data) use($fn,$first){
+			return $fn($val,$key,$first,...$data);
+		},$first,array_keys($first),...$data);
 	}
 	function pluck($key,$data){
 		return array_column($data,$key);
