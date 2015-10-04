@@ -7,9 +7,7 @@ class _{
 					return array_shift($args);
 				return $v;
 			},$start);
-			if ((new \ReflectionFunction($fn))->getNumberOfRequiredParameters()>count($apply))
-				return $this->curry($fn,...$apply);
-			return $fn(...$apply);
+			return @$fn(...$apply);
 		};
 	}
 	function compose(...$fns){
