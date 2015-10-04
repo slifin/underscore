@@ -40,8 +40,8 @@ Currying is the key to making these tools practical consider the following code
 
 # TODO
 
-Write documentation 
-Add Docblock 
-Write PHP Unit tests 
-Add composer support 
-Add PHP module
+1. Write documentation 
+2. Add Docblock 
+3. Write PHP Unit tests 
+4. Add composer support 
+5. Add PHP module
