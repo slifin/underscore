@@ -56,4 +56,4 @@ var_dump($iChooseYou);
 2. Add Docblock 
 3. Re-write tests as PHP Unit tests 
 4. Add composer support 
-5. Add PHP module
+5. Add PHP module - maybe?
