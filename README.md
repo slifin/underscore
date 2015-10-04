@@ -8,7 +8,7 @@
 `map`
 `reduce`
 
-# Motivation
+## Motivation
 
 My motivation is to implement the simplest functional tools for PHP possible to enable practical: 
 `filter`, `map`, `reduce` operations on your data 
@@ -37,7 +37,7 @@ Currying is the key to making these tools practical consider the following code
   
   The philosophy here is everything is data, filter, map, reduce are the tools for operating on data in a reuseable way, currying can help you squeeze your data into those tools
 
-# Documentation
+## Documentation
 
 # TODO
 
