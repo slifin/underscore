@@ -3,7 +3,7 @@
 class tests{
 	function curry(){
 		$test = function($val1,$val2,$val3,$val4){
-			return implode(' ',[1=>$val1,2=>$val2,3=>$val3,4=>$val4]);
+			return implode(' ',[$val1,$val2,$val3,$val4]);
 		};
 		$test2 = (new _)->curry($test,'this',(new _),'correct',(new _));
 		return $test2('is','hooray');
