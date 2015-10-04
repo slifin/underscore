@@ -18,19 +18,18 @@ Implement the simplest functional tools for PHP possible to enable practical:
 
 Currying is the key to making these tools practical consider the following code 
 
-    $chooseMyPokemon = function($type,$row,$key,$arr){
-    	return $row['level']>50&&$row['type']==$type;
+    $chooseMyPokemon = function ($type, $row, $key, $arr) {
+        return $row['level'] > 50 && $row['type'] == $type;
     };
-
+    
     $pokemon = [
-    ['level'=>66,'name'=>'slowpoke','type'=>'water'],
-    ['level'=>77,'name'=>'arcanine','type'=>'fire'],
-    ['level'=>32,'name'=>'pikachu','type'=>'electric']
+        ['level' => 66, 'name' => 'slowpoke', 'type' => 'water'],
+        ['level' => 77, 'name' => 'arcanine', 'type' => 'fire'],
+        ['level' => 32, 'name' => 'pikachu', 'type' => 'electric'],
     ];
-
-
-    $iLikeFire = (new _)->curry($chooseMyPokemon,'fire',(new _));
-    $iChooseYou = (new _)->filter($iLikeFire,$pokemon);
+    
+    $iLikeFire = (new _)->curry($chooseMyPokemon, 'fire', (new _));
+    $iChooseYou = (new _)->filter($iLikeFire, $pokemon);
     var_dump($iChooseYou);
     
   $chooseMyPokemon could not be used with filter without currying in the $type parameter ahead of time because there is a parameter mismatch
