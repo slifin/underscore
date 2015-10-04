@@ -6,7 +6,6 @@
 `compose`
 `filter`
 `map`
-`pluck`
 `reduce`
 
 # Motivation
