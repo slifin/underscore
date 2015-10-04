@@ -38,10 +38,6 @@ class _
             return $fn($val, $key, $first, ...$data);
         }, $first, array_keys($first), ...$data);
     }
-    public function pluck($key, $data)
-    {
-        return array_column($data, $key);
-    }
     public function reduce($fn, $data, $init = null)
     {
         return array_reduce(array_keys($data), function ($carry, $key) use ($fn, $data) {
