@@ -19,18 +19,18 @@ My motivation is to implement the simplest functional tools for PHP possible to 
 
 Currying is the key to making these tools practical consider the following code 
 
-    $chooseMyPokemon = function($row,$index,$resultset,$type){
+    $chooseMyPokemon = function($type,$row,$key,$arr){
     	return $row['level']>50&&$row['type']==$type;
     };
-    
+
     $pokemon = [
     ['level'=>66,'name'=>'slowpoke','type'=>'water'],
     ['level'=>77,'name'=>'arcanine','type'=>'fire'],
     ['level'=>32,'name'=>'pikachu','type'=>'electric']
     ];
-    
-    
-    $iLikeFire = (new _)->curry($chooseMyPokemon,(new _),(new _), (new _),'fire');
+
+
+    $iLikeFire = (new _)->curry($chooseMyPokemon,'fire',(new _));
     $iChooseYou = (new _)->filter($iLikeFire,$pokemon);
     var_dump($iChooseYou);
     
