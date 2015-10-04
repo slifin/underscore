@@ -1,5 +1,5 @@
 # Underscore
-2kb functional library for PHP
+2kb functional class for PHP
 
 
 `curry`
