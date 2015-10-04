@@ -10,6 +10,16 @@
 
 ## Documentation
 
+###curry
+
+###compose
+
+###filter
+
+###map
+
+###reduce
+
 ## Motivation
 
 Implement the simplest functional tools for PHP possible to enable practical: 
