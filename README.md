@@ -8,6 +8,8 @@
 `map`
 `reduce`
 
+## Documentation
+
 ## Motivation
 
 Implement the simplest functional tools for PHP possible to enable practical: 
@@ -38,9 +40,7 @@ var_dump($iChooseYou);
   
   The philosophy here is everything is data, filter, map, reduce are the tools for operating on data in a reuseable way, currying can help you squeeze your data into those tools
 
-## Documentation
-
-# TODO
+## TODO
 
 1. Write documentation 
 2. Add Docblock 
