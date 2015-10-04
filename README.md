@@ -13,7 +13,7 @@
 My motivation is to implement the simplest functional tools for PHP possible to enable practical: 
 `filter`, `map`, `reduce` operations on your data 
 
-`filter`, `map`, `reduce` now mostly match their JS counterparts where all callbacks receive the current value, key and complete array as parameters
+`filter`, `map`, `reduce` now mostly match their JavaScript counterparts where all callbacks receive the current value, key and complete array as parameters
 
 
 Currying is the key to making these tools practical consider the following code 
