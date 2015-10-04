@@ -16,7 +16,7 @@ Implement the simplest functional tools for PHP possible to enable practical:
 `filter`, `map`, `reduce` now mostly match their JavaScript counterparts where all callbacks receive the current value, key and complete array as parameters
 
 
-Currying is the key to making these tools practical consider the following code 
+>Currying is the key to making these tools practical consider the following code 
 ```php
 $chooseMyPokemon = function ($type, $row, $key, $arr) {
     return $row['level'] > 50 && $row['type'] == $type;
