@@ -11,7 +11,7 @@
 ## Motivation
 
 Implement the simplest functional tools for PHP possible to enable practical: 
-`filter`, `map`, `reduce` operations on your data 
+`filter`, `map`, `reduce` operations
 
 `filter`, `map`, `reduce` now mostly match their JavaScript counterparts where all callbacks receive the current value, key and complete array as parameters
 
