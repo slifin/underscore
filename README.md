@@ -42,6 +42,6 @@ Currying is the key to making these tools practical consider the following code
 
 1. Write documentation 
 2. Add Docblock 
-3. Write PHP Unit tests 
+3. Re-write tests as PHP Unit tests 
 4. Add composer support 
 5. Add PHP module
