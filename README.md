@@ -10,15 +10,15 @@
 
 ## Documentation
 
-###curry
+####Curry
 
-###compose
+####Compose
 
-###filter
+####Filter
 
-###map
+####Map
 
-###reduce
+####Reduce
 
 ## Motivation
 
