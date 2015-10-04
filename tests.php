@@ -34,10 +34,6 @@ class tests{
 		},['hello'=>1,'world'=>2]);
 		//expected return [0=>'hello',1=>'world']
 	}
-	function pluck(){
-		return (new _)->pluck('name',[['name'=>'adrian','age'=>26]]);
-		//expected return ['adrian']
-	}
 	function reduce(){
 		return (new _)->reduce(function($carry,$val,$key,$arr){
 			return $carry + ($val + $key);
