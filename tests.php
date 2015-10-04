@@ -1,4 +1,5 @@
 <?php
+//TODO rewrite as PHPUnit tests
 class tests{
 	function curry(){
 		$test = function($val1,$val2,$val3,$val4){
