@@ -36,4 +36,4 @@ Currying is the key to making these tools practical consider the following code
     
   $chooseMyPokemon could not be used with filter without currying in the $type parameter ahead of time because there is a parameter mismatch
   
-  The philosophy here is everything is data, filter, map, reduce are the tools for operating on data, currying can help you squeeze your data into those tools
+  The philosophy here is everything is data, filter, map, reduce are the tools for operating on data in a reuseable way, currying can help you squeeze your data into those tools
