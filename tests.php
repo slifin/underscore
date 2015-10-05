@@ -1,8 +1,9 @@
 <?php
+//TODO rewrite as PHPUnit tests
 class tests{
 	function curry(){
 		$test = function($val1,$val2,$val3,$val4){
-			return implode(' ',[1=>$val1,2=>$val2,3=>$val3,4=>$val4]);
+			return implode(' ',[$val1,$val2,$val3,$val4]);
 		};
 		$test2 = (new _)->curry($test,'this',(new _),'correct',(new _));
 		return $test2('is','hooray');
@@ -32,10 +33,6 @@ class tests{
 			return $key;
 		},['hello'=>1,'world'=>2]);
 		//expected return [0=>'hello',1=>'world']
-	}
-	function pluck(){
-		return (new _)->pluck('name',[['name'=>'adrian','age'=>26]]);
-		//expected return ['adrian']
 	}
 	function reduce(){
 		return (new _)->reduce(function($carry,$val,$key,$arr){
