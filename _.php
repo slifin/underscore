@@ -44,4 +44,15 @@ class _
             return $fn($carry, $data[$key], $key, $data);
         }, $init);
     }
+    public function get($base, $access, $delimit = '.')
+    {
+        return array_reduce(explode($delimit, $access), function ($carry, $val) {
+            if (is_array($carry) && isset($carry[$val])) {
+                return $carry[$val];
+            }
+            if (is_object($carry) && isset($carry->{$val})) {
+                return $carry->{$val};
+            }
+        }, $base);
+    }
 }
