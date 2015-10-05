@@ -31,7 +31,7 @@ Implement the simplest functional tools for PHP possible to enable practical:
 >Currying is the key to making these tools practical consider the following code 
 
 ```php
-$chooseMyPokemon = function ($type, $row, $key, $arr) {
+$chooseMyPokemon = function ($type, $row) {
     return $row['level'] > 50 && $row['type'] == $type;
 };
 
