@@ -31,7 +31,7 @@ $listFormatter = function($val){
 $echoList = (new _)->compose([$listFormatter,$echo]);
 
 //later in my template
-array_walk($data,$echoList); 
+array_walk($myList,$echoList); 
 ```
 
 
