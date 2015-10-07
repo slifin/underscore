@@ -20,7 +20,8 @@ If you are learning functional programming then this functional helper class can
 
 Compose will return a callable function that is made up of all the functions passed to it, these will execute left to right, you use this function when you are looking to give semantic meaning to a combination of functions or you are re-using this particular set of functions (or transforms) a lot
 
-Example 1 - a practical example, execute the echo only when the callback is called whilst leaving the original $listFormatter functionally clean without the side effect of printing to the page so now we could use $listFormatter in other non echoing contexts 
+#####Example 1
+A practical example, execute the echo only when the callback is called whilst leaving the original $listFormatter functionally clean without the side effect of printing to the page so now we could use $listFormatter in other non echoing contexts 
 ```php
 $echo = function($val){
     echo $val;
