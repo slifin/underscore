@@ -10,7 +10,7 @@
 
 ##Why use this
 
-If you are learning functional programming then this functional helper class can help you use higher order functions such as map, filter, reduce and compose functions based on another smaller functions in order to re-use functions. To achieve function re-use sometimes you need to pre-populate a function with some parameters already filled in, this is where currying comes in.
+If you are learning functional programming then this functional helper class can help you use higher order functions such as map, filter, reduce and compose functions based on another smaller functions in order to re-use functions sometimes you need to pre-populate a function with some parameters already filled in, this is where currying comes in.
 
 
 ## Documentation
@@ -20,7 +20,7 @@ If you are learning functional programming then this functional helper class can
 
 Compose will return a callable function that is made up of all the functions passed to it, these will execute left to right, you use this function when you are looking to give semantic meaning to a combination of functions or you are re-using this particular set of functions (or transforms) a lot
 
-Example 1:
+Example 1 - a practical example, execute the echo only when the callback is called 
 ```php
 $echo = function($val){
     echo $val;
@@ -35,7 +35,7 @@ array_walk($data,$echoList);
 ```
 
 
-Example 2:
+Example 2 - a semantic example, if we use salt and pepper a lot why not combine them into their own function?:
 ```php
 $salt = function($val){
     $val[] = 'salt';
