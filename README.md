@@ -1,5 +1,11 @@
 # Underscore
-2kb functional class for PHP
+2kb functional class for PHP includes 
+`curry`
+`compose`
+`filter`
+`map`
+`reduce`
+`get`
 
 
 ##Why use this
