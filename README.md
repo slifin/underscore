@@ -53,6 +53,7 @@ $pepper = function($val){
 $addSaltAndPepper = (new _)->compose([$salt,$pepper]);
 $meal = ['fish','chips'];
 $completeMeal = $addSaltAndPepper($meal);
+//$completedMeal = ['fish','chips','salt','pepper'];
 ```
 we use salt and pepper all the time we may aswell make a third function that is a composite of salt and pepper
 ####Curry
