@@ -16,6 +16,7 @@ If you are learning functional programming then this functional helper class can
 `filter`
 `map`
 `reduce`
+`get`
 
 ## Documentation
 
