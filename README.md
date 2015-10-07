@@ -21,7 +21,7 @@ If you are learning functional programming then this functional helper class can
 Compose will return a callable function that is made up of all the functions passed to it, these will execute left to right, you use this function when you are looking to give semantic meaning to a combination of functions or you are re-using this particular set of functions (or transforms) a lot
 
 #####Example 1
-A practical example, execute the echo only when the callback is called whilst leaving the original $listFormatter functionally clean without the side effect of printing to the page so now we could use $listFormatter in other non echoing contexts 
+A practical example 
 ```php
 $echo = function($val){
     echo $val;
@@ -34,9 +34,10 @@ $echoList = (new _)->compose([$listFormatter,$echo]);
 //later in my template
 array_walk($myList,$echoList); 
 ```
+Execute the echo only when the callback is called whilst leaving the original $listFormatter functionally clean without the side effect of printing to the page so now we could use $listFormatter in other non echoing contexts 
 
-
-Example 2 - a semantic example, if we use salt and pepper a lot why not combine them into their own function?:
+#####Example 2 
+A semantic example, 
 ```php
 $salt = function($val){
     $val[] = 'salt';
@@ -50,6 +51,7 @@ $addSaltAndPepper = (new _)->compose([$salt,$pepper]);
 $meal = ['fish','chips'];
 $completeMeal = $addSaltAndPepper($meal);
 ```
+we use salt and pepper all the time we may aswell make a third function that is a composite of salt and pepper
 ####Curry
 
 ####Filter
