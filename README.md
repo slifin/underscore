@@ -9,11 +9,41 @@ If you are learning functional programming then this functional helper class can
 
 ## Documentation
 
-####Curry
-
-C
 
 ####Compose
+
+Compose will return a callable function that is made up of all the functions passed to it, these will execute left to right, you use this function when you are looking to give semantic meaning to a combination of functions or you are re-using this particular set of functions (or transforms) a lot
+
+Example 1:
+```php
+$echo = function($val){
+    echo $val;
+};
+$listFormatter = function($val){
+    return '<li>'.$val.'</li>';
+};
+$echoList = (new _)->compose([$listFormatter,$echo]);
+
+//later in my template
+array_walk($data,$echoList); 
+```
+
+
+Example 2:
+```php
+$salt = function($val){
+    $val[] = 'salt';
+    return $val;
+}
+$pepper = function($val){
+    $val[] = 'pepper';
+    return $val;
+}
+$addSaltAndPepper = (new _)->compose([$salt,$pepper]);
+$meal = ['fish','chips'];
+$completeMeal = $addSaltAndPepper($meal);
+```
+####Curry
 
 ####Filter
 
