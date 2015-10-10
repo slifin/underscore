@@ -1,24 +1,70 @@
 # Underscore
-2kb functional class for PHP
-
-
+2kb functional class for PHP includes 
 `curry`
 `compose`
 `filter`
 `map`
 `reduce`
+`get`
+
+
+##Why use this
+
+If you are learning functional programming then this functional helper class can help you use higher order functions such as map, filter, reduce and compose functions based on another smaller functions in order to re-use functions, To achieve this sometimes you need to pre-populate a function with some parameters already filled in, this is where currying comes in.
+
 
 ## Documentation
 
-####Curry
 
-####Compose
+####Compose 
+*accepts one parameter an array of functions*
+
+*returns a function*
+
+Compose will return a callable function that is made up of all the functions passed to it, these will execute left to right, you use this function when you are looking to give semantic meaning to a combination of functions or you are re-using this particular set of functions (or transforms) a lot
+
+#####Example 1
+A practical example 
+```php
+$echo = function($val){
+    echo $val;
+};
+$listFormatter = function($val){
+    return '<li>'.$val.'</li>';
+};
+$echoList = (new _)->compose([$listFormatter,$echo]);
+
+//later in my template
+array_walk($myList,$echoList); 
+```
+Execute the echo only when the callback is called whilst leaving the original $listFormatter functionally clean without the side effect of printing to the page so now we could use $listFormatter in other non echoing contexts 
+
+#####Example 2 
+A semantic example, 
+```php
+$salt = function($val){
+    $val[] = 'salt';
+    return $val;
+}
+$pepper = function($val){
+    $val[] = 'pepper';
+    return $val;
+}
+$addSaltAndPepper = (new _)->compose([$salt,$pepper]);
+$meal = ['fish','chips'];
+$completeMeal = $addSaltAndPepper($meal);
+//$completedMeal = ['fish','chips','salt','pepper'];
+```
+we use salt and pepper all the time we may aswell make a third function that is a composite of salt and pepper
+####Curry
 
 ####Filter
 
 ####Map
 
 ####Reduce
+
+####Get
 
 ## Motivation
 
@@ -31,7 +77,7 @@ Implement the simplest functional tools for PHP possible to enable practical:
 >Currying is the key to making these tools practical consider the following code 
 
 ```php
-$chooseMyPokemon = function ($type, $row, $key, $arr) {
+$chooseMyPokemon = function ($type, $row) {
     return $row['level'] > 50 && $row['type'] == $type;
 };
 
@@ -44,6 +90,8 @@ $pokemon = [
 $iLikeFire = (new _)->curry($chooseMyPokemon, 'fire', (new _));
 $iChooseYou = (new _)->filter($iLikeFire, $pokemon);
 var_dump($iChooseYou);
+
+array(1) { [1]=> array(3) { ["level"]=> int(77) ["name"]=> string(8) "arcanine" ["type"]=> string(4) "fire" } }
 ```
     
   $chooseMyPokemon could not be used with filter without currying in the $type parameter ahead of time because there is a parameter mismatch
