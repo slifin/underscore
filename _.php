@@ -1,6 +1,16 @@
 <?php
 class _
 {
+    public function compose(...$fns)
+    {
+        $prev = array_shift($fns);
+        foreach ($fns as $fn) {
+            $prev = function (...$args) use ($fn, $prev) {
+                return $prev($fn(...$args));
+            };
+        }
+        return $prev;
+    }
     public function curry(callable $fn, ...$start)
     {
         return function (...$args) use ($fn, $start) {
@@ -12,16 +22,6 @@ class _
             }, $start));
         };
     }
-    public function compose(...$fns)
-    {
-        $prev = array_shift($fns);
-        foreach ($fns as $fn) {
-            $prev = function (...$args) use ($fn, $prev) {
-                return $prev($fn(...$args));
-            };
-        }
-        return $prev;
-    }
     public function filter(callable $fn, $data)
     {
         foreach ($data as $k => $v) {
@@ -30,6 +30,15 @@ class _
             }
         }
         return $data;
+    }
+    public function get($base, $access, $delimit = '.')
+    {
+        return array_reduce(explode($delimit, $access), function ($carry, $val) {
+            return reset(array_values(array_filter([(is_array($carry) && isset($carry[$val])) ? $carry[$val] : false,
+                (is_object($carry) && isset($carry->{$val})) ? $carry->{$val} : false,
+                (is_object($carry) && isset($carry::${$val})) ? $carry::${$val} : false,
+                $carry])));
+        }, $base);
     }
     public function map(callable $fn, ...$data)
     {
@@ -44,15 +53,5 @@ class _
             return $fn($carry, $data[$key], $key, $data);
         }, $init);
     }
-    public function get($base, $access, $delimit = '.')
-    {
-        return array_reduce(explode($delimit, $access), function ($carry, $val) {
-            if (is_array($carry) && isset($carry[$val])) {
-                return $carry[$val];
-            }
-            if (is_object($carry) && isset($carry->{$val})) {
-                return $carry->{$val};
-            }
-        }, $base);
-    }
+
 }
