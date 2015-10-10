@@ -34,7 +34,8 @@ class _
     public function get($base, $access, $delimit = '.')
     {
         return array_reduce(explode($delimit, $access), function ($carry, $val) {
-            return reset(array_values(array_filter([(is_array($carry) && isset($carry[$val])) ? $carry[$val] : false,
+            return reset(array_values(array_filter([
+                (is_array($carry) && isset($carry[$val])) ? $carry[$val] : false,
                 (is_object($carry) && isset($carry->{$val})) ? $carry->{$val} : false,
                 (is_object($carry) && isset($carry::${$val})) ? $carry::${$val} : false,
                 $carry])));
