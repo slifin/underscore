@@ -10,7 +10,7 @@
 
 ##Why use this
 
-If you are learning functional programming then this functional helper class can help you use higher order functions such as map, filter, reduce and compose functions based on another smaller functions in order to re-use functions, To achieve this sometimes you need to pre-populate a function with some parameters already filled in, this is where currying comes in.
+If you are learning functional programming then this functional helper class can help you use higher order functions such as map, filter, reduce and compose functions based on another smaller functions in order to re-use functions, To achieve this sometimes you need to pre-populate a function with some parameters already filled in we can achieve this with currying
 
 
 ## Documentation
