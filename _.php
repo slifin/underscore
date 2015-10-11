@@ -53,11 +53,11 @@ class _
         return $data;
     }
     /**
-     * [get description]
-     * @param  [type] $base    [description]
-     * @param  [type] $access  [description]
-     * @param  string $delimit [description]
-     * @return [type]          [description]
+     * function for accessing object/array offsets without errors
+     * @param  mixed  $base    object/array to access
+     * @param  string $access  a string which represents the offset with delimitors
+     * @param  string $delimit delimitor found in previous variable defaults to .
+     * @return mixed  value retireved from $base via $offset
      */
     public function get($base, $access, $delimit = '.')
     {
@@ -66,7 +66,7 @@ class _
                 (is_array($carry) && isset($carry[$val])) ? $carry[$val] : false,
                 (is_object($carry) && isset($carry->{$val})) ? $carry->{$val} : false,
                 (is_object($carry) && isset($carry::${$val})) ? $carry::${$val} : false,
-                $carry])));
+                (is_scalar($carry))?$carry:null])));
         }, $base);
     }
     /**
