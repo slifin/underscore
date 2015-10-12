@@ -99,7 +99,7 @@ array(1) { [1]=> array(3) { ["level"]=> int(77) ["name"]=> string(8) "arcanine" 
   The philosophy here is everything is data, filter, map, reduce are the tools for operating on data in a reuseable way, currying can help you squeeze your data into those tools
 
 ## TODO
-
+-- filter as array_filter with : ARRAY_FILTER_USE_KEY
 1. Write documentation 
 2. Add Docblock 
 3. Re-write tests as PHP Unit tests 
