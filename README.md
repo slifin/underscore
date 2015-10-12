@@ -100,6 +100,7 @@ array(1) { [1]=> array(3) { ["level"]=> int(77) ["name"]=> string(8) "arcanine" 
 
 ## TODO
 -- filter as array_filter with : ARRAY_FILTER_USE_KEY
+
 1. Write documentation 
 2. Add Docblock 
 3. Re-write tests as PHP Unit tests 
