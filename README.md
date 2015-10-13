@@ -17,9 +17,13 @@ If you are learning functional programming then this functional helper class can
 
 
 ####Compose 
-*accepts one parameter an array of functions*
-
-*returns a function*
+```php
+    /**
+     * Compose a series of functions together
+     * @param  functions    $fns a series of functions
+     * @return function        combined functions
+     */
+```
 
 Compose will return a callable function that is made up of all the functions passed to it, these will execute left to right, use this function when you are looking to give semantic meaning to a combination of functions or you are re-using this particular set of functions (or transforms) a lot
 
