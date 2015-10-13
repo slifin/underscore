@@ -56,18 +56,22 @@ class _
      * function for accessing object/array offsets without errors
      * @param  mixed  $base    object/array to access
      * @param  string $access  a string which represents the offset with delimitors
-     * @param  string $delimit delimitor found in previous variable defaults to .
+     * @param  string $delimit delimitor found in $access defaults to .
      * @return mixed  value retireved from $base via $offset
      */
     public function get($base, $access, $delimit = '.')
     {
-        return array_reduce(explode($delimit, $access), function ($carry, $val) {
+        return $this->reduce(function ($carry, $val, $key, $arr) {
             return reset(array_values(array_filter([
-                (is_array($carry) && isset($carry[$val])) ? $carry[$val] : false,
-                (is_object($carry) && isset($carry->{$val})) ? $carry->{$val} : false,
-                (is_object($carry) && isset($carry::${$val})) ? $carry::${$val} : false,
-                (is_scalar($carry))?$carry:null])));
-        }, $base);
+                    (is_array($carry) && isset($carry[$val])) ? $carry[$val] : (new _),
+                    (is_object($carry) && isset($carry->{$val})) ? $carry->{$val} : (new _),
+                    (is_object($carry) && isset($carry::${$val})) ? $carry::${$val} : (new _),
+                    (--$key==count($arr))?null:null
+                    ],function($val){
+                        return !is_a($val,'_');
+                    })
+                ));
+        },explode($delimit, $access), $base);
     }
     /**
      * itterate over a list and change the elements in a list
