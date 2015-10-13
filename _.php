@@ -45,12 +45,9 @@ class _
      */
     public function filter(callable $fn, $data)
     {
-        foreach ($data as $k => $v) {
-            if (!$fn($v, $k, $data)) {
-                unset($data[$k]);
-            }
-        }
-        return $data;
+        return array_filter($data,function($v,$k) use($fn,$data){
+            return $fn($v,$k,$data);
+        },ARRAY_FILTER_USE_BOTH);    
     }
     /**
      * function for accessing object/array offsets without errors
