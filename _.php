@@ -52,23 +52,17 @@ class _
     /**
      * function for accessing object/array offsets without errors
      * @param  mixed  $base    object/array to access
-     * @param  string $access  a string which represents the offset with delimitors
-     * @param  string $delimit delimitor found in $access defaults to .
+     * @param  string $offset  a string which represents the php style offset
+     * @param  string $default if the value isn't found return this value
      * @return mixed  value retireved from $base via $offset
      */
-    public function get($base, $access, $delimit = '.')
-    {
-        return $this->reduce(function ($carry, $val, $key, $arr) {
-            return reset(array_values(array_filter([
-                    (is_array($carry) && isset($carry[$val])) ? $carry[$val] : (new _),
-                    (is_object($carry) && isset($carry->{$val})) ? $carry->{$val} : (new _),
-                    (is_object($carry) && isset($carry::${$val})) ? $carry::${$val} : (new _),
-                    (--$key==count($arr))?null:null
-                    ],function($val){
-                        return !is_a($val,'_');
-                    })
-                ));
-        },explode($delimit, $access), $base);
+    public function get($base,$offset,$default){
+        set_error_handler(function(){
+            throw new \Exception();
+        });
+        try{$default = eval('return $base'.trim($offset).';');}catch(\Exception $e){}   
+        restore_error_handler();
+        return $default;
     }
     /**
      * itterate over a list and change the elements in a list
