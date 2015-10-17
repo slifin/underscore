@@ -61,7 +61,16 @@ $completeMeal = $addSaltAndPepper($meal);
 ```
 we use salt and pepper all the time we may aswell make a third function that is a composite of salt and pepper
 ####Curry
-
+```php
+/**
+ * Pre populate function with parameters whilst leaving some to be filled in later
+ * the _ object passed in as a paremeter will denote a parameter offset that can be
+ * filled in later
+ * @param  callable $fn     function to partially apply
+ * @param  mixed    $start  first set of arguments
+ * @return function         partially applied function
+ */
+```
 ####Filter
 
 ####Map
