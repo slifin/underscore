@@ -2,8 +2,8 @@
 class _ {
 	/**
 	 * Compose a series of functions together
-	 * @param  functions    $fns a series of functions
-	 * @return function        combined functions
+	 * @param  functions	$fns a series of functions
+	 * @return function		combined functions
 	 */
 	public function compose(...$fns) {
 		$prev = array_shift($fns);
