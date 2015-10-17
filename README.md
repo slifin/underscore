@@ -115,7 +115,7 @@ array(1) { [1]=> array(3) { ["level"]=> int(77) ["name"]=> string(8) "arcanine" 
 ## TODO
 
 1. Write documentation 
-2. Add Docblock 
+2. ~~Add Docblock~~ 
 3. Re-write tests as PHP Unit tests 
 4. Add composer support 
 5. Add PHP module - maybe?
