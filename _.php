@@ -52,7 +52,7 @@ class _ {
 	 * @param  string $default if the value isn't found return this value
 	 * @return mixed  value retireved from $base via $offset
 	 */
-	public function get($base, $offset, $default) {
+	public function get($base, $offset, $default = null) {
 		set_error_handler(function () {throw new \Exception();});
 		try { $default = eval('return $base' . trim($offset) . ';');} catch (\Exception $e) {}
 		restore_error_handler();
