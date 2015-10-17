@@ -1,4 +1,4 @@
-# Underscore
+# _
 3kb functional class for PHP includes 
 `curry`
 `compose`
