@@ -1,4 +1,4 @@
-# _
+# _.php
 3kb Functional class for PHP includes 
 `curry`
 `compose`
