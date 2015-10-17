@@ -1,5 +1,5 @@
 # _
-3kb functional class for PHP includes 
+3kb Functional class for PHP includes 
 `curry`
 `compose`
 `filter`
