@@ -59,7 +59,7 @@ $meal = ['fish','chips'];
 $completeMeal = $addSaltAndPepper($meal);
 //$completedMeal = ['fish','chips','salt','pepper'];
 ```
-we use salt and pepper all the time we may aswell make a third function that is a composite of salt and pepper
+We use salt and pepper all the time we may aswell make a third function that is a composite of salt and pepper
 ####Curry
 ```php
 /**
@@ -88,7 +88,12 @@ $rand = rand(15, 50);
 $compare = (new _)->curry($compareAge, (new _), $rand);
 $filtered = array_filter($data, $compare);
 ```
-inside the $compareAge function $row is populated on each itteration of array_filter with the value inside $data, but $comparison is filled in once ahead of time because it has been curried in
+Inside the $compareAge function $row is populated on each itteration of array_filter with the value inside $data, but $comparison is filled in once ahead of time because it has been curried in
+
+#####Example 1
+A semantic example
+```php
+```
 
 ####Filter
 
