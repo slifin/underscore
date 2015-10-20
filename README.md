@@ -105,6 +105,8 @@ $findJames = (new _)->curry($find, (new _), 35, 'James');
 $Tom = array_filter($data, $findTom);
 $James = array_filter($data, $findJames);
 ```
+$findTom and $findJames are functions derived from a base function and have their own semantic meaning, shared logic 
+only needs to be written once and currying allows both new functions to move through array_filter without issue
 
 ####Filter
 
