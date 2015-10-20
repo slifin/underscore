@@ -71,7 +71,7 @@ We use salt and pepper all the time we may aswell make a third function that is 
  * @return function         partially applied function
  */
 ```
-Currying allows you to partially apply the arguments of a function and get the resulting function back, allowing you to mold a function to fit inside a higher order function
+Currying allows you to partially apply the arguments of a function and get the resulting function back, allowing you to mold a function to fit inside a higher order function (a higher order function is one that can accept a function as a parameter - common examples are: filter, map, reduce)
 
 #####Example 1
 A practical example 
