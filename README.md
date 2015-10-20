@@ -44,7 +44,7 @@ array_walk($myList,$echoList);
 Execute the echo only when the callback is called whilst leaving the original $listFormatter functionally clean without the side effect of printing to the page so now we could use $listFormatter in other non echoing contexts 
 
 #####Example 2 
-A semantic example, 
+A semantic example 
 ```php
 $salt = function($val){
     $val[] = 'salt';
@@ -72,6 +72,24 @@ we use salt and pepper all the time we may aswell make a third function that is 
  */
 ```
 Currying allows you to partially apply the arguments of a function and get the resulting function back, allowing you to mold a function to fit inside a higher order function
+
+#####Example 1
+A practical example 
+```php
+$data = [
+	['age' => 17, 'name' => 'Tom'],
+	['age' => 35, 'name' => 'James'],
+	['age' => 21, 'name' => 'Jon'],
+];
+$compareAge = function ($row, $comparison) {
+	return $row['age'] == $comparison;
+};
+$rand = rand(15, 50);
+$compare = (new _)->curry($compareAge, (new _), $rand);
+$filtered = array_filter($data, $compare);
+```
+
+
 ####Filter
 
 ####Map
