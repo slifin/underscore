@@ -84,8 +84,7 @@ $data = [
 $compareAge = function ($row, $comparison) {
 	return $row['age'] == $comparison;
 };
-$rand = rand(15, 50);
-$compare = (new _)->curry($compareAge, (new _), $rand);
+$compare = (new _)->curry($compareAge, (new _), rand(15, 50));
 $filtered = array_filter($data, $compare);
 ```
 Inside the $compareAge function $row is populated on each itteration of array_filter with the value inside $data, but $comparison is filled in once ahead of time because it has been curried in
