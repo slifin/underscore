@@ -10,7 +10,7 @@
 
 ##Why use this
 
-If you are learning functional programming then this functional helper class can help you use higher order functions such as map, filter, reduce the cornerstones of data manipulation. To do this pratically, pre-populate your functions with some parameters already filled in, this can be achieved with currying.
+If you are learning functional programming then this functional helper class can help you use higher order functions such as map, filter, reduce the cornerstones of data manipulation. To do this pratically, pre-populate your functions with some parameters already filled in, this can be achieved with [https://github.com/slifin/underscore#curry](currying).
 
 
 ## Documentation
