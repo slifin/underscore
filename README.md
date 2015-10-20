@@ -92,6 +92,18 @@ Inside the $compareAge function $row is populated on each itteration of array_fi
 #####Example 1
 A semantic example
 ```php
+$data = [
+	['age' => 17, 'name' => 'Tom'],
+	['age' => 35, 'name' => 'James'],
+	['age' => 21, 'name' => 'Jon'],
+];
+$find = function ($row, $age, $name) {
+	return $row['age'] == $age && $row['name'] == $name;
+};
+$findTom = (new _)->curry($find, (new _), 17, 'Tom');
+$findJames = (new _)->curry($find, (new _), 35, 'James');
+$Tom = array_filter($data, $findTom);
+$James = array_filter($data, $findJames);
 ```
 
 ####Filter
