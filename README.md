@@ -1,5 +1,5 @@
-# Underscore
-4kb functional class for PHP includes 
+# _.php
+3kB Functional class for PHP includes 
 `curry`
 `compose`
 `filter`
@@ -10,7 +10,7 @@
 
 ##Why use this
 
-If you are learning functional programming then this functional helper class can help you use higher order functions such as map, filter, reduce and compose functions based on another smaller functions in order to re-use functions, To achieve this sometimes you need to pre-populate a function with some parameters already filled in we can achieve this with currying
+If you are learning functional programming then this functional helper class can help you use higher order functions such as map, filter, reduce the cornerstones of data manipulation. To do this pratically, pre-populate your functions with some parameters already filled in, this can be achieved with [currying](#curry).
 
 
 ## Documentation
@@ -44,7 +44,7 @@ array_walk($myList,$echoList);
 Execute the echo only when the callback is called whilst leaving the original $listFormatter functionally clean without the side effect of printing to the page so now we could use $listFormatter in other non echoing contexts 
 
 #####Example 2 
-A semantic example, 
+A semantic example 
 ```php
 $salt = function($val){
     $val[] = 'salt';
@@ -59,8 +59,54 @@ $meal = ['fish','chips'];
 $completeMeal = $addSaltAndPepper($meal);
 //$completedMeal = ['fish','chips','salt','pepper'];
 ```
-we use salt and pepper all the time we may aswell make a third function that is a composite of salt and pepper
+We use salt and pepper all the time we may aswell make a third function that is a composite of salt and pepper
 ####Curry
+```php
+/**
+ * Pre populate function with parameters whilst leaving some to be filled in later
+ * the _ object passed in as a paremeter will denote a parameter offset that can be
+ * filled in later
+ * @param  callable $fn     function to partially apply
+ * @param  mixed    $start  first set of arguments
+ * @return function         partially applied function
+ */
+```
+Currying allows you to partially apply the arguments of a function and get the resulting function back, allowing you to mold a function to fit inside a higher order function (a higher order function is one that can accept a function as a parameter - common examples are: filter, map, reduce)
+
+#####Example 1
+A practical example 
+```php
+$data = [
+	['age' => 17, 'name' => 'Tom'],
+	['age' => 35, 'name' => 'James'],
+	['age' => 21, 'name' => 'Jon'],
+];
+$compareAge = function ($row, $comparison) {
+	return $row['age'] == $comparison;
+};
+$compare = (new _)->curry($compareAge, (new _), rand(15, 50));
+$filtered = array_filter($data, $compare);
+```
+Inside the $compareAge function $row is populated on each itteration of array_filter with the value inside $data, but $comparison is filled in once ahead of time because it has been curried in
+
+#####Example 1
+A semantic example
+```php
+$data = [
+	['age' => 17, 'name' => 'Tom'],
+	['age' => 35, 'name' => 'James'],
+	['age' => 21, 'name' => 'Jon'],
+];
+$find = function ($row, $age, $name) {
+	return $row['age'] == $age && $row['name'] == $name;
+};
+$findTom = (new _)->curry($find, (new _), 17, 'Tom');
+$findJames = (new _)->curry($find, (new _), 35, 'James');
+$Tom = array_filter($data, $findTom);
+$James = array_filter($data, $findJames);
+```
+$findTom and $findJames are functions derived from a base function and have their own semantic meaning, shared logic 
+only needs to be written once and currying allows both new functions to move through array_filter without issue
 
 ####Filter
 
@@ -103,10 +149,9 @@ array(1) { [1]=> array(3) { ["level"]=> int(77) ["name"]=> string(8) "arcanine" 
   The philosophy here is everything is data, filter, map, reduce are the tools for operating on data in a reuseable way, currying can help you squeeze your data into those tools
 
 ## TODO
--- filter as array_filter with : ARRAY_FILTER_USE_KEY
 
 1. Write documentation 
-2. Add Docblock 
+2. ~~Add Docblock~~ 
 3. Re-write tests as PHP Unit tests 
 4. Add composer support 
 5. Add PHP module - maybe?

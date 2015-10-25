@@ -19,7 +19,7 @@ class _ {
 	 * the _ object passed in as a paremeter will denote a parameter offset that can be
 	 * filled in later
 	 * @param  callable $fn     function to partially apply
-	 * @param  mixed    $start     first set of arguments
+	 * @param  mixed    $start  first set of arguments
 	 * @return function         partially applied function
 	 */
 	public function curry(callable $fn, ...$start) {
