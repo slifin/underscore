@@ -147,11 +147,16 @@ array(1) { [1]=> array(3) { ["level"]=> int(77) ["name"]=> string(8) "arcanine" 
   $chooseMyPokemon could not be used with filter without currying in the $type parameter ahead of time because there is a parameter mismatch
   
   The philosophy here is everything is data, filter, map, reduce are the tools for operating on data in a reuseable way, currying can help you squeeze your data into those tools
+  
+  
+## Tests
+>phpunit --bootstrap _.php tests.php
 
 ## TODO
 
 1. Write documentation 
-2. ~~Add Docblock~~ 
-3. Re-write tests as PHP Unit tests 
-4. Add composer support 
-5. Add PHP module - maybe?
+2. Add more tests to help assert intended behaviour and check for weaknesses
+3. ~~Add Docblock~~ 
+4. ~~Re-write tests as PHP Unit tests~~  
+5. Add composer support 
+6. Add PHP module - maybe?
