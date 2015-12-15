@@ -142,7 +142,15 @@ only needs to be written once and currying allows both new functions to move thr
  */
  ```
 ####Get
-
+```php
+/**
+ * function for accessing object/array offsets without errors
+ * @param  mixed  $base    object/array to access
+ * @param  string $offset  a string which represents the php style offset
+ * @param  string $default if the value isn't found return this value
+ * @return mixed  value retireved from $base via $offset
+ */
+ ```
 ## Motivation
 
 Implement the simplest functional tools for PHP possible to enable practical: 
