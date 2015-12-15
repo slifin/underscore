@@ -155,34 +155,6 @@ only needs to be written once and currying allows both new functions to move thr
 
 Implement the simplest functional tools for PHP possible to enable practical: 
 `filter`, `map`, `reduce` operations
-
-`filter`, `map`, `reduce` now mostly match their JavaScript counterparts where all callbacks receive the current value, key and complete array as parameters
-
-
->Currying is the key to making these tools practical consider the following code 
-
-```php
-$chooseMyPokemon = function ($type, $row) {
-    return $row['level'] > 50 && $row['type'] == $type;
-};
-
-$pokemon = [
-    ['level' => 66, 'name' => 'slowpoke', 'type' => 'water'],
-    ['level' => 77, 'name' => 'arcanine', 'type' => 'fire'],
-    ['level' => 32, 'name' => 'pikachu', 'type' => 'electric'],
-];
-
-$iLikeFire = (new _)->curry($chooseMyPokemon, 'fire', (new _));
-$iChooseYou = (new _)->filter($iLikeFire, $pokemon);
-var_dump($iChooseYou);
-
-array(1) { [1]=> array(3) { ["level"]=> int(77) ["name"]=> string(8) "arcanine" ["type"]=> string(4) "fire" } }
-```
-    
-  $chooseMyPokemon could not be used with filter without currying in the $type parameter ahead of time because there is a parameter mismatch
-  
-  The philosophy here is everything is data, filter, map, reduce are the tools for operating on data in a reuseable way, currying can help you squeeze your data into those tools
-  
   
 ## Tests
 >phpunit --bootstrap _.php tests.php
