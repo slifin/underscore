@@ -109,7 +109,16 @@ $findTom and $findJames are functions derived from a base function and have thei
 only needs to be written once and currying allows both new functions to move through array_filter without issue
 
 ####Filter
-
+```php
+/**
+* Filter data elements by the return of the function provided
+* return true to keep the element in the array
+* return false to remove the element in the array
+* @param  callable $fn   evaluation function
+* @param  array          $data a list to itterate over
+* @return array          filtered array
+*/
+```
 ####Map
 
 ####Reduce
