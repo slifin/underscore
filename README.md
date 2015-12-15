@@ -111,18 +111,36 @@ only needs to be written once and currying allows both new functions to move thr
 ####Filter
 ```php
 /**
-* Filter data elements by the return of the function provided
-* return true to keep the element in the array
-* return false to remove the element in the array
-* @param  callable $fn   evaluation function
-* @param  array          $data a list to itterate over
-* @return array          filtered array
+ * Filter data elements by the return of the function provided
+ * return true to keep the element in the array
+ * return false to remove the element in the array
+ * @param  callable $fn   evaluation function
+ * @param  array          $data a list to itterate over
+ * @return array          filtered array
 */
 ```
 ####Map
-
+```php
+/**
+ * itterate over a list and change the elements in a list
+ * based on the return from the provided function
+ * @param  callable $fn   function that will return a new value for the current element in the given array
+ * @param  array   $data one dimensional array
+ * @return array   transform data
+ */
+```
 ####Reduce
-
+```php
+/**
+ * itterate over a list calling the provided function on the value of each call
+ * on every itteration a carrying variable is put into the function which contains
+ * any previously returned values or $init
+ * @param  callable $fn   user defined function for reducing
+ * @param  array    $data user data to itterate over
+ * @param  mixed    $init first value inserted into $carry
+ * @return mixed    returned carry value
+ */
+ ```
 ####Get
 
 ## Motivation
