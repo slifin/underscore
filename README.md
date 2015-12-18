@@ -119,6 +119,7 @@ only needs to be written once and currying allows both new functions to move thr
  * @return array          filtered array
 */
 ```
+The filter() method creates a new array with all elements that pass the test implemented by the provided function.
 ####Map
 ```php
 /**
@@ -129,6 +130,7 @@ only needs to be written once and currying allows both new functions to move thr
  * @return array   transform data
  */
 ```
+The map() method creates a new array with the results of calling a provided function on every element in this array.
 ####Reduce
 ```php
 /**
@@ -141,6 +143,7 @@ only needs to be written once and currying allows both new functions to move thr
  * @return mixed    returned carry value
  */
  ```
+The reduce() method applies a function against an accumulator and each value of the array (from left-to-right) to reduce it to a single value.
 ####Get
 ```php
 /**
