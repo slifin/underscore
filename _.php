@@ -67,9 +67,9 @@ class _ {
 	 */
 	public function map(callable $fn, ...$data) {
 		$first = array_shift($data);
-		return array_map(function ($val, $key, ...$data) use ($fn, $first) {
+		return array_map(function ($val, $key) use ($fn, $first, $data) {
 			return $fn($val, $key, $first, ...$data);
-		}, $first, array_keys($first), ...$data);
+		}, $first, array_keys($first));
 	}
 	/**
 	 * itterate over a list calling the provided function on the value of each call
